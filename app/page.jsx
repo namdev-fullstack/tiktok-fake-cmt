@@ -35,11 +35,38 @@ function generateSvgAvatar(seed) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
 
+// Danh sách tên & avatar phong cách trẻ trâu, giang hồ mạng, dân chơi tóp tóp
 const PRESET_NAMES = [
+  // Trẻ trâu / Giang hồ mạng / Báo thủ viral
+  'Khá Bảnh 🕺', 'Tuấn Phò Mã 🏎️', 'Dân Chơi Xóm Chùa 🚬', 'Boy Bắn Tỉa 🔫',
+  'Báo Thủ Làng Gốm 🚲', 'Đạt Villa 🌾', 'Sát Thủ Tình Trường 💔', 'Cậu Ấm Cô Đơn 🚬',
+  'Bé Heo Chảnh Cún 🐷💅', 'Hoàng Tử Gió 🌪️', 'Trùm Trường THPT 🥊', 'Chàng Trai Năm Ấy 🥀',
+  'Hùng Bá Vua Tiền Tệ 💵', 'Công Chúa Bóng Đêm 🖤', 'Anh 7 Báo Đời 🏎️', 'Thánh Bú Fame ⭐',
+  'Bé Na Hay Dỗi 🐍', 'Boy Cô Đơn Tìm Gái Nhõng Nhẽo 🥺', 'Chiến Thần Tóp Tóp ⚡', 'Dũng Trọc Hà Đông 🦁',
+  'Thần Trùng 6 Múi 🗿', 'Bé Mèo Dỗi Hờn 🐱', 'Idol Giới Trẻ 💎', 'Ngọc Trinh Trà Sữa 🧋',
+  'Dân Bay Phòng 🎈', 'Soái Ca Sợ Vợ 💍', 'Tiến Bịp ♠️', 'Huấn Hoa Hồng 🌹',
+  // Tên idol / Reviewer quen thuộc
   'Hoàng Long 🧸', 'Bé Bắp 🌽', 'Hà Linh Reviewer ✨', 'Minh Trí 🎮',
-  'Ngọc Ánh 🌸', 'Thanh Hằng 💅', 'Duy Thẩm ⚡', 'Phương Thảo 🥑',
-  'Gia Bảo 🧢', 'Hương Giang 🍉', 'Tiến Đạt 🔥', 'Mai Chi 🎀',
-  'Lê Tuấn Khang', 'Cẩm Tú 🍀', 'Huy Cung 🎬'
+  'Ngọc Ánh 🌸', 'Thanh Hằng 💅', 'Duy Thẩm ⚡', 'Phương Thảo 🥑'
+];
+
+const MEME_AVATARS = [
+  // Avatar mặc định TikTok huyền thoại
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#334155"/><circle cx="50" cy="38" r="18" fill="#94a3b8"/><path d="M18 86c0-16 14-26 32-26s32 10 32 26" fill="#94a3b8"/></svg>`)}`,
+  // Meme Mặt Đá Moai 🗿
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#475569"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">🗿</text></svg>`)}`,
+  // Meme Thằng Hề Chúa 🤡
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#ef4444"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">🤡</text></svg>`)}`,
+  // Meme Chó Shiba 🐶
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#f59e0b"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">🐶</text></svg>`)}`,
+  // Meme Dân Chơi Kính Đen 😎
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#3b82f6"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">😎</text></svg>`)}`,
+  // Meme Đầu Lâu 💀
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0f172a"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">💀</text></svg>`)}`,
+  // Meme Ếch Xanh 🐸
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#16a34a"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">🐸</text></svg>`)}`,
+  // Meme Khỉ Báo Thủ 🐒
+  `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#d97706"/><text x="50%" y="54%" font-size="52" text-anchor="middle" dominant-baseline="middle">🐒</text></svg>`)}`
 ];
 
 const PRESET_TIMES = [
@@ -86,6 +113,7 @@ export default function FakeCommentPage() {
   const [isLiked, setIsLiked] = useState(true);
   const [isDisliked, setIsDisliked] = useState(false);
   const [showReplyCount, setShowReplyCount] = useState(false);
+  const [replyCount, setReplyCount] = useState('12');
 
   // Theme & Mode (Mặc định nền sáng)
   const [theme, setTheme] = useState('light'); // 'dark' | 'light'
@@ -125,7 +153,11 @@ export default function FakeCommentPage() {
   const randomizeLikes = () => setLikes(randomItem(PRESET_LIKES));
   const randomizeComment = () => setComment(randomItem(PRESET_COMMENTS));
   const randomizeAvatar = () => {
-    if (base64Avatars.length > 0 && Math.random() < 0.6) {
+    // 50% meme avatar trẻ trâu / hài hước, 35% ảnh thật, 15% cute vector
+    const rand = Math.random();
+    if (rand < 0.5) {
+      setAvatar(randomItem(MEME_AVATARS));
+    } else if (base64Avatars.length > 0 && rand < 0.85) {
       setAvatar(randomItem(base64Avatars));
     } else {
       setAvatar(generateSvgAvatar(Math.floor(Math.random() * 100)));
@@ -144,6 +176,7 @@ export default function FakeCommentPage() {
     setIsLiked(Math.random() < 0.7);
     setIsDisliked(false);
     setShowReplyCount(Math.random() < 0.35);
+    setReplyCount(String(randomItem([2, 5, 8, 12, 19, 24, 48, 89, 124])));
     showToastMsg('Đã random tất cả thông tin! 🎲');
   };
 
@@ -160,6 +193,7 @@ export default function FakeCommentPage() {
     setIsLiked(true);
     setIsDisliked(false);
     setShowReplyCount(false);
+    setReplyCount('12');
     setTheme('light');
     setMode('solo');
     setBorderStyle('card');
@@ -387,7 +421,7 @@ export default function FakeCommentPage() {
                       onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0])}
                     />
                   </div>
-                  <div className="flex-1 space-y-2">
+                  <div className="flex-1 min-w-0 space-y-2">
                     <div className="flex gap-2">
                       <button
                         type="button"
@@ -405,29 +439,46 @@ export default function FakeCommentPage() {
                       </button>
                     </div>
 
-                    {/* Quick Avatar Presets */}
-                    <div className="flex items-center gap-1.5 overflow-x-auto py-1">
-                      {[1, 2, 3].map((seed) => {
-                        const svg = generateSvgAvatar(seed);
-                        return (
+                    {/* Quick Avatar Presets (Meme, Cute, Photos) - Cuộn ngang mượt mà */}
+                    <div className="w-full overflow-x-auto py-1 scrollbar-thin">
+                      <div className="flex items-center gap-1.5 w-max">
+                        {/* Meme Avatars */}
+                        {MEME_AVATARS.map((meme, idx) => (
                           <img
-                            key={seed}
-                            src={svg}
-                            alt="preset"
-                            onClick={() => setAvatar(svg)}
+                            key={`meme-${idx}`}
+                            src={meme}
+                            alt="meme avatar"
+                            onClick={() => setAvatar(meme)}
+                            title="Meme Avatar"
+                            className="w-8 h-8 rounded-full object-cover cursor-pointer border-2 border-transparent hover:border-[#fe2c55] hover:scale-110 transition flex-shrink-0 shadow-sm"
+                          />
+                        ))}
+                        {/* Cute Animals */}
+                        {[1, 2, 3].map((seed) => {
+                          const svg = generateSvgAvatar(seed);
+                          return (
+                            <img
+                              key={`svg-${seed}`}
+                              src={svg}
+                              alt="cute avatar"
+                              onClick={() => setAvatar(svg)}
+                              title="Cute Avatar"
+                              className="w-8 h-8 rounded-full object-cover cursor-pointer border-2 border-transparent hover:border-[#fe2c55] hover:scale-110 transition flex-shrink-0"
+                            />
+                          );
+                        })}
+                        {/* Real Photos */}
+                        {base64Avatars.map((b64, idx) => (
+                          <img
+                            key={`b64-${idx}`}
+                            src={b64}
+                            alt="photo avatar"
+                            onClick={() => setAvatar(b64)}
+                            title="Photo Avatar"
                             className="w-8 h-8 rounded-full object-cover cursor-pointer border-2 border-transparent hover:border-[#fe2c55] hover:scale-110 transition flex-shrink-0"
                           />
-                        );
-                      })}
-                      {base64Avatars.slice(0, 4).map((b64, idx) => (
-                        <img
-                          key={idx}
-                          src={b64}
-                          alt="preset"
-                          onClick={() => setAvatar(b64)}
-                          className="w-8 h-8 rounded-full object-cover cursor-pointer border-2 border-transparent hover:border-[#fe2c55] hover:scale-110 transition flex-shrink-0"
-                        />
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -595,15 +646,48 @@ export default function FakeCommentPage() {
                     <span className="text-xs font-medium text-slate-300">Đã dislike 👎</span>
                   </label>
 
-                  <label className="flex items-center space-x-2 bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-lg p-2.5 cursor-pointer transition select-none col-span-2 sm:col-span-3">
-                    <input
-                      type="checkbox"
-                      checked={showReplyCount}
-                      onChange={(e) => setShowReplyCount(e.target.checked)}
-                      className="rounded text-[#fe2c55] focus:ring-[#fe2c55] bg-slate-800 border-slate-700 w-4 h-4"
-                    />
-                    <span className="text-xs font-medium text-slate-300">Hiện &quot;Xem 12 câu trả lời&quot;</span>
-                  </label>
+                  <div className="col-span-2 sm:col-span-3 bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-lg p-2.5 space-y-2 transition">
+                    <div className="flex items-center justify-between">
+                      <label className="flex items-center space-x-2 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={showReplyCount}
+                          onChange={(e) => setShowReplyCount(e.target.checked)}
+                          className="rounded text-[#fe2c55] focus:ring-[#fe2c55] bg-slate-800 border-slate-700 w-4 h-4"
+                        />
+                        <span className="text-xs font-medium text-slate-300">Hiện dòng &quot;Xem câu trả lời&quot;</span>
+                      </label>
+                      {showReplyCount && (
+                        <span className="text-[10px] text-pink-400 font-medium">💡 Sửa trực tiếp được</span>
+                      )}
+                    </div>
+                    {showReplyCount && (
+                      <div className="flex items-center gap-2 pt-1.5 border-t border-slate-800/80">
+                        <span className="text-xs text-slate-400 font-medium">Số câu trả lời:</span>
+                        <input
+                          type="text"
+                          value={replyCount}
+                          onChange={(e) => setReplyCount(e.target.value)}
+                          className="w-16 bg-slate-950 border border-slate-700 rounded-md px-2 py-1 text-xs text-white focus:outline-none focus:border-[#fe2c55] font-semibold text-center"
+                          placeholder="12"
+                        />
+                        <div className="flex gap-1">
+                          {['3', '12', '48', '99+'].map((num) => (
+                            <button
+                              key={num}
+                              type="button"
+                              onClick={() => setReplyCount(num)}
+                              className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
+                                replyCount === num ? 'bg-[#fe2c55] text-white' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                              }`}
+                            >
+                              {num}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -867,14 +951,26 @@ export default function FakeCommentPage() {
                         </div>
                       )}
 
-                      {/* Reply row */}
+                      {/* Reply row with customizable replyCount */}
                       {showReplyCount && (
                         <div
                           style={{ color: theme === 'dark' ? '#8a8b91' : '#73747b' }}
-                          className="flex items-center gap-2 text-[12px] font-medium mt-2 cursor-pointer select-none"
+                          className="flex items-center gap-2 text-[12px] font-medium mt-2 select-none"
                         >
-                          <span className="w-6 h-[1px] bg-neutral-600 inline-block"></span>
-                          <span>Xem 12 câu trả lời</span>
+                          <span className="w-6 h-[1px] bg-neutral-400 dark:bg-neutral-600 inline-block"></span>
+                          <span className="inline-flex items-center gap-1">
+                            <span>Xem</span>
+                            <span
+                              contentEditable
+                              suppressContentEditableWarning
+                              onBlur={(e) => setReplyCount(e.currentTarget.textContent?.trim() || '12')}
+                              className="outline-none hover:bg-black/5 dark:hover:bg-white/10 px-0.5 rounded transition cursor-text font-semibold"
+                              title="Bấm vào số để sửa"
+                            >
+                              {replyCount}
+                            </span>
+                            <span>câu trả lời</span>
+                          </span>
                           <svg className="w-2.5 h-2.5 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                           </svg>
