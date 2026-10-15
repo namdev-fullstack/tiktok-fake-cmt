@@ -1,0 +1,184 @@
+/* TikTok Typography & Custom Styles */
+:root {
+  --tiktok-font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--tiktok-font);
+}
+
+/* TikTok Theme: Dark (Mặc định chuẩn app TikTok) */
+.tiktok-theme-dark {
+  background-color: #121212;
+  color: #ffffff;
+  border-radius: 12px;
+  font-family: var(--tiktok-font);
+}
+
+.tiktok-theme-dark #preview-name {
+  color: #8a8b91 !important;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.tiktok-theme-dark #preview-comment-body {
+  color: #ffffff !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.38;
+}
+
+.tiktok-theme-dark .reply-btn-label {
+  color: #8a8b91 !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tiktok-theme-dark .reply-btn-label:hover {
+  color: #d1d5db !important;
+}
+
+.tiktok-theme-dark #preview-time,
+.tiktok-theme-dark #preview-likes,
+.tiktok-theme-dark #preview-dislike-icon,
+.tiktok-theme-dark #preview-liked-by-creator,
+.tiktok-theme-dark #preview-replies-row {
+  color: #8a8b91 !important;
+}
+
+.tiktok-theme-dark #preview-heart-icon:not(.is-liked) {
+  color: #8a8b91 !important;
+}
+
+.tiktok-theme-dark #preview-heart-icon.is-liked {
+  color: #fe2c55 !important;
+}
+
+/* Dislike is strictly OUTLINE */
+#preview-dislike-icon {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+.tiktok-theme-dark .is-disliked #preview-dislike-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* TikTok Theme: Light */
+.tiktok-theme-light {
+  background-color: #ffffff;
+  color: #161823;
+  border-radius: 12px;
+  font-family: var(--tiktok-font);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}
+
+.tiktok-theme-light #preview-name {
+  color: #73747b !important;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.tiktok-theme-light #preview-comment-body {
+  color: #161823 !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.38;
+}
+
+.tiktok-theme-light .reply-btn-label {
+  color: #73747b !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tiktok-theme-light .reply-btn-label:hover {
+  color: #161823 !important;
+}
+
+.tiktok-theme-light #preview-time,
+.tiktok-theme-light #preview-likes,
+.tiktok-theme-light #preview-dislike-icon,
+.tiktok-theme-light #preview-liked-by-creator,
+.tiktok-theme-light #preview-replies-row {
+  color: #73747b !important;
+}
+
+.tiktok-theme-light #preview-pinned-tag {
+  color: #73747b !important;
+}
+
+.tiktok-theme-light #preview-heart-icon:not(.is-liked) {
+  color: #73747b !important;
+}
+
+.tiktok-theme-light #preview-heart-icon.is-liked {
+  color: #fe2c55 !important;
+}
+
+.tiktok-theme-light .is-disliked #preview-dislike-icon {
+  color: #161823 !important;
+  stroke: #161823 !important;
+}
+
+/* Framing Mode */
+.tiktok-frame-mode {
+  padding: 24px !important;
+  border-radius: 20px !important;
+  background: linear-gradient(145deg, #18181b, #09090b) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.tiktok-theme-light.tiktok-frame-mode {
+  background: linear-gradient(145deg, #f8fafc, #f1f5f9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Contenteditable focus styles */
+[contenteditable="true"]:focus {
+  background-color: rgba(254, 44, 85, 0.1) !important;
+  outline: 1.5px dashed #fe2c55 !important;
+  border-radius: 4px;
+}
+
+/* Quick Avatar preset buttons */
+.avatar-preset-item {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.avatar-preset-item:hover,
+.avatar-preset-item.active {
+  border-color: #fe2c55;
+  transform: scale(1.1);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
